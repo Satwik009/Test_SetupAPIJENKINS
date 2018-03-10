@@ -1,0 +1,63 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Test_Setup",
+		"_postman_id": "62428d48-a817-3a2a-1566-0ea773f02d58",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Signup",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"Body matches string\"] = responseBody.has(\"Mobile No Already Exists\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://162.243.205.148/event_app/apis1/signup",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"event_app\" : {\n    \"password\" : \"123456\",\n    \"longitude\" : \"80.946166\",\n    \"mobile_no\" : \"9807535589\",\n    \"user_type\" : \"1\",\n    \"email\" : \"teza@gmail.com\",\n    \"latitude\" : \"26.8466937\",\n    \"device_type\" : \"1\",\n    \"name\" : \"daga\"\n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "AllEvent",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"Body matches string\"] = responseBody.has(\"Record  Found Successfully\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://162.243.205.148/event_app/apis1/getAllEvent",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"event_app\" : {\n    \"access_token\" : \"\",\n    \"page_index\" : \"1\",\n    \"syn_time\" : \"\"\n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
